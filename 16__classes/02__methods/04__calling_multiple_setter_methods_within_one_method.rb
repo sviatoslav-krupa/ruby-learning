@@ -1,6 +1,6 @@
 # Notes:
-#   * In Ruby, an instance variable comes into existence the first time a value is assigned to it
-#   * You don’t need to declare instance variables in advance — assignment automatically creates them
+#   * In Ruby, an instance variable comes into existence the first time you access it
+#   * You don’t need to declare instance variables in advance
 
 class Gadget
   attr_accessor :username, :password
