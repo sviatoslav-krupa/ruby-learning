@@ -7,7 +7,7 @@
 #   * A method is first defined with a set of Ruby statements
 #   * The method is then called or invoked (run, executed)
 #   * When an object receives a message for a method that doesn't exist in its class or any ancestor in the method lookup chain,
-#     Ruby automatically invokes method_missing on that object
+#     Ruby automatically invokes `method_missing` on that object
 
 # Example - convert military time (1630) to standard time (04:30PM):
 #   * Isolate first two numbers
