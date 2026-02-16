@@ -50,5 +50,16 @@ introduce_myself_2
 #   I am talented!
 #   I am brilliant!
 
-# Converting a method to an object:
-method(:introduce_myself) #=> #<Method: Object#introduce_myself() (irb):1>
+# Edge cases:
+class Test
+  def method_missing(method_name)
+    puts method(:method_missing) # converting a method to an object
+    puts method(:method_missing).super_method # getting super method object of the specified method object
+    super
+  end
+end
+
+Test.new.test_method #=> undefined method 'test_method' for an instance of Test (NoMethodError)
+# OUTPUT:
+#   Test#method_missing(method_name) (irb):37>
+#   BasicObject#method_missing(*)
