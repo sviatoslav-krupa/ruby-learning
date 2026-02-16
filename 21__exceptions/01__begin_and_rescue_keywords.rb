@@ -47,3 +47,10 @@ sum(3, "5") #=> nil
 sum(nil, nil) #=> nil
 # OUTPUT:
 #   Unknown
+
+# Edge cases:
+def sum(a, b)
+  puts a + b
+else # can't be alone without `if` or `rescue`
+  puts "No rescue"
+end #=> syntax error found (SyntaxError)
