@@ -62,13 +62,13 @@ class Test
 end
 Test.new.test_method #=> undefined method 'test_method' for an instance of Test (NoMethodError)
 # OUTPUT:
-#   Test#method_missing(method_name) (irb):37>
+#   Test#method_missing(method_name)
 #   BasicObject#method_missing(*)
 
 class Test
   def method_missing(method_name) 
-    puts method(:method_missing) # converting a method to an object
-    puts method(:method_missing).super_method # getting super method object of the specified method object
+    puts method(:method_missing)
+    puts method(:method_missing).super_method
   end
 end
 Test.new.test_method #=> nil (no errors, be careful with `method_missing` overwriting)
