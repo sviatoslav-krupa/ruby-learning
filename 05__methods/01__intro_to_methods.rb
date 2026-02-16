@@ -73,5 +73,5 @@ class Test
 end
 Test.new.test_method #=> nil (no errors, be careful with `method_missing` overwriting)
 # OUTPUT:
-#   Test#method_missing(method_name) (irb):37>
+#   Test#method_missing(method_name)
 #   BasicObject#method_missing(*)
