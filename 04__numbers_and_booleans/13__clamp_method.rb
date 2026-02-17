@@ -4,8 +4,8 @@
 # Docs:
 #   * https://apidock.com/ruby/Comparable/clamp
 
-12.clamp(0, 100)     #=> 12
-523.clamp(0, 100)    #=> 100
+12.clamp(0, 100)  #=> 12
+523.clamp(0, 100) #=> 100
 
 -3.123.clamp(0, 100) #=> 0
 
