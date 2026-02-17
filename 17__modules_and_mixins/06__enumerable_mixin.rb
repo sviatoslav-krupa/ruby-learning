@@ -54,9 +54,12 @@ bodega.add_snack("Slim Jim")
 
 bodega.snacks #=> ["Doritos", "Jolly Ranchers", "Slim Jim"]
 
-bodega.each      #=> #<Enumerator: ...>
-bodega.each.next #=> "Doritos"
-bodega.first     #=> "Doritos" (used enumerator for `.first` method)
+enumerator = bodega.each #=> #<Enumerator: ...>
+enumerator.next          #=> "Doritos"
+enumerator.next          #=> "Jolly Ranchers"
+enumerator.next          #=> "Slim Jim"
+enumerator.next          #=> iteration reached an end (StopIteration)
+bodega.first             #=> "Doritos" (used enumerator for `.first` method)
 
 bodega.each { |snack| p "#{snack} is delicious" }
 # OUTPUT:
