@@ -1,5 +1,5 @@
 # Notes:
-#   * .clamp - returns min if obj <=> min is less than zero, max if obj <=> max is greater than zero and obj otherwise
+#   * .clamp - clamps (limits) an object within a specific range of values
 
 # Docs:
 #   * https://apidock.com/ruby/Comparable/clamp
