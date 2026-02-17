@@ -1,5 +1,7 @@
 # Notes:
 #   * Symbol - lightweight String. It doesn't include as many methods as String, so it uses less memory
+#   * For strings, Ruby allocates memory for the string, and clears memory if the are no pointers to the string anymore
+#   * For symbols, Ruby allocates memory for the symbol (without duplicates, same object in memory for same symbol), and don't clear memory so frequent
 #   * .methods - list of all available methods on an abject
 
 :name                 #=> :name
@@ -9,6 +11,17 @@
 "name"                #=> "name"
 "name".class          #=> String
 "name".methods.length #=> 195
+
+# Ruby
+#   * allocates memory for the string "Not efficient symbol"
+#   * converts the string to symbol (one more memory allocation)
+#   * clears memory from the string
+:"Not efficient symbol" #=> :"Not efficient symbol"
+
+# Ruby just
+#   * allocates memory for the string "More efficient string"
+#   * clears memory from the string if it's not used anymore
+"More efficient string" #=> "More efficient string"
 
 str = "test"
 dup_str = "test"
