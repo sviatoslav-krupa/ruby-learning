@@ -1,3 +1,6 @@
+# Docs:
+#   * https://ruby-doc.org/3.4.1/Hash.html#method-i-fetch
+
 menu = {
   burger: 3.99,
   taco: 5.96,
