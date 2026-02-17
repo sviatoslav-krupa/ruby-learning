@@ -1,22 +1,12 @@
-require "active_support/concern" # needed to use `included do ... end`
-
 module Example
-  extend ActiveSupport::Concern # needed to use `included do ... end`
-
   class << self
     attr_reader :includers
   end
 
-  # calls each time when a class includes this module (by Ruby)
-  def self.included(base = nil, &block)
+  # calls each time when a class includes this module
+  def self.included(base)
     @includers ||= []
-    @includers << base if base
-    super # calls the original `included` method below
-  end
-
-  # calls each time when a class includes this module (by ActiveSupport::Concern)
-  included do
-    p "included"
+    @includers << base
   end
 end
 
@@ -28,9 +18,10 @@ class B
   include Example
 end
 
-ObjectSpace.each_object(Class).select { |klass| klass.included_modules.include?(Example) } #=> [B, A]
+# `included_modules` - get all modules that out class has (includes)
+A.included_modules #=> [Example, JSON::Ext::Generator::GeneratorMethods::Object, PP::ObjectMixin, Kernel]
+B.included_modules #=> [Example, JSON::Ext::Generator::GeneratorMethods::Object, PP::ObjectMixin, Kernel]
 
+# `ObjectSpace` - like a container for all classes
+ObjectSpace.each_object(Class).select { |klass| klass.included_modules.include?(Example) } #=> [B, A]
 Example.includers #=> [A, B]
-# OUTPUT:
-#   "included"
-#   "included"
