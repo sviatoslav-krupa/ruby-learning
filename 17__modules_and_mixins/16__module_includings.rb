@@ -18,7 +18,7 @@ class B
   include Example
 end
 
-# `included_modules` - get all modules that out class has (includes)
+# `included_modules` - get all modules that the class has (includes)
 A.included_modules #=> [Example, JSON::Ext::Generator::GeneratorMethods::Object, PP::ObjectMixin, Kernel]
 B.included_modules #=> [Example, JSON::Ext::Generator::GeneratorMethods::Object, PP::ObjectMixin, Kernel]
 
