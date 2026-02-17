@@ -41,6 +41,7 @@ class ConvenienceStore
 
   # Need to create each method to tell Ruby how to iterate objects
   def each
+    return enum_for(:each) unless block_given? # returns enumerator if no block provided
     snacks.each { |snack| yield(snack) }
   end
 end
@@ -52,6 +53,11 @@ bodega.add_snack("Jolly Ranchers")
 bodega.add_snack("Slim Jim")
 
 bodega.snacks #=> ["Doritos", "Jolly Ranchers", "Slim Jim"]
+
+bodega.each      #=> #<Enumerator: ...>
+bodega.each.next #=> "Doritos"
+bodega.first     #=> "Doritos" (used enumerator for `.first` method)
+
 bodega.each { |snack| p "#{snack} is delicious" }
 # OUTPUT:
 #   "Doritos is delicious"
