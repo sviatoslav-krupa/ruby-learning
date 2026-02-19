@@ -62,6 +62,9 @@ intro.class.ancestors #=> [String, JSON::Ext::Generator::GeneratorMethods::Strin
 intro.singleton_class           #=> #<Class:#<String:0x0000000127d2eec0>>
 intro.singleton_class.ancestors #=> [#<Class:#<String:0x0000000127d2eec0>>, A, String, JSON::Ext::Generator::GeneratorMethods::String, Comparable, Object, JSON::Ext::Generator::GeneratorMethods::Object, PP::ObjectMixin, Kernel, BasicObject]
 
+intro.singleton_class.class      #=> Class
+intro.singleton_class.superclass #=> String
+
 # Class methods are just instance methods of singleton class :)
 class Foo
   def self.bar # accessing singleton class
@@ -82,3 +85,5 @@ Foo                                  #=> Foo
 Foo.singleton_class                  #=> #<Class:Foo>
 Foo.singleton_methods                #=> [:baz, :bar, :yaml_tag]
 Foo.singleton_class.instance_methods #=> [:bar, :baz, :yaml_tag... ]
+Foo.singleton_class.class            #=> Class
+Foo.singleton_class.superclass       #=> #<Class:Object
