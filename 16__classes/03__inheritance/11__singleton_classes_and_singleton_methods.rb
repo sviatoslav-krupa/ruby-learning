@@ -32,9 +32,11 @@ john.play_game #=> "Winner!" (always)
 john.class.ancestors #=> [Player, Object, JSON::Ext::Generator::GeneratorMethods::Object, PP::ObjectMixin, Kernel, BasicObject]
 bob.class.ancestors  #=> [Player, Object, JSON::Ext::Generator::GeneratorMethods::Object, PP::ObjectMixin, Kernel, BasicObject]
 
+bob                   #=> #<Player:0x00007fe4a5a37ac8>
 bob.singleton_class   #=> #<Class:#<Player:0x00007fe4a5a37ac8>>
 bob.singleton_methods #=> []
 
+john                   #=> #<Player:0x00007fe4aa8ce9c0>
 john.singleton_class   #=> #<Class:#<Player:0x00007fe4aa8ce9c0>>
 john.singleton_methods #=> [:cheat, :play_game]
 
@@ -76,6 +78,7 @@ end
 Foo.bar #=> "Bar"
 Foo.baz #=> "Baz"
 
-Foo.singleton_class                   #=> #<Class:Foo>
-Foo.singleton_methods                 #=> [:baz, :bar, :yaml_tag]
-Foo.singleton_class.instance_moethods #=> [:bar, :baz, :yaml_tag... ]
+Foo                                  #=> Foo
+Foo.singleton_class                  #=> #<Class:Foo>
+Foo.singleton_methods                #=> [:baz, :bar, :yaml_tag]
+Foo.singleton_class.instance_methods #=> [:bar, :baz, :yaml_tag... ]
