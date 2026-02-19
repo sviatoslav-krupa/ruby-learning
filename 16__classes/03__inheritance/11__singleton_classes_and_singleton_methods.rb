@@ -60,7 +60,7 @@ intro.class.ancestors #=> [String, JSON::Ext::Generator::GeneratorMethods::Strin
 intro.singleton_class           #=> #<Class:#<String:0x0000000127d2eec0>>
 intro.singleton_class.ancestors #=> [#<Class:#<String:0x0000000127d2eec0>>, A, String, JSON::Ext::Generator::GeneratorMethods::String, Comparable, Object, JSON::Ext::Generator::GeneratorMethods::Object, PP::ObjectMixin, Kernel, BasicObject]
 
-# Class methods are jusy instance methods of singleton class :)
+# Class methods are just instance methods of singleton class :)
 class Foo
   def self.bar # accessing singleton class
     "Bar"
