@@ -41,7 +41,7 @@ john.singleton_class   #=> #<Class:#<Player:0x00007fe4aa8ce9c0>>
 john.singleton_methods #=> [:cheat, :play_game]
 
 # Edge cases:
-intro = "Hy, my name is Sviat"
+intro = "Hi, my name is Sviat"
 
 module A
   def reverse_and_upcase
