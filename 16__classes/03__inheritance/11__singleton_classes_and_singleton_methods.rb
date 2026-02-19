@@ -29,8 +29,52 @@ end
 
 john.play_game #=> "Winner!" (always)
 
+john.class.ancestors #=> [Player, Object, JSON::Ext::Generator::GeneratorMethods::Object, PP::ObjectMixin, Kernel, BasicObject]
+bob.class.ancestors  #=> [Player, Object, JSON::Ext::Generator::GeneratorMethods::Object, PP::ObjectMixin, Kernel, BasicObject]
+
 bob.singleton_class   #=> #<Class:#<Player:0x00007fe4a5a37ac8>>
 bob.singleton_methods #=> []
 
 john.singleton_class   #=> #<Class:#<Player:0x00007fe4aa8ce9c0>>
 john.singleton_methods #=> [:cheat, :play_game]
+
+# Edge cases:
+intro = "Hy, my name is Sviat"
+
+module A
+  def reverse_and_upcase
+    reverse.upcase
+  end
+end
+
+class << intro # accessing singleton class (including module into singleton class)
+  include A
+end
+
+intro.reverse_and_upcase   #=> "TAIVS SI EMAN YM ,YH"
+"hello".reverse_and_upcase #=> undefined method 'reverse_and_upcase' for an instance of String (NoMethodError)
+
+intro.class           #=> String
+intro.class.ancestors #=> [String, JSON::Ext::Generator::GeneratorMethods::String, Comparable, Object, JSON::Ext::Generator::GeneratorMethods::Object, PP::ObjectMixin, Kernel, BasicObject]
+
+intro.singleton_class           #=> #<Class:#<String:0x0000000127d2eec0>>
+intro.singleton_class.ancestors #=> [#<Class:#<String:0x0000000127d2eec0>>, A, String, JSON::Ext::Generator::GeneratorMethods::String, Comparable, Object, JSON::Ext::Generator::GeneratorMethods::Object, PP::ObjectMixin, Kernel, BasicObject]
+
+# Class methods are jusy instance methods of singleton class :)
+class Foo
+  def self.bar # accessing singleton class
+    "Bar"
+  end
+
+  class << self # accessing singleton class
+    def baz
+      "Baz"
+    end
+  end
+end
+
+Foo.bar #=> "Bar"
+Foo.baz #=> "Baz"
+
+Foo.singleton_class   #=> #<Class:Foo>
+Foo.singleton_methods #=> [:baz, :bar, :yaml_tag]
