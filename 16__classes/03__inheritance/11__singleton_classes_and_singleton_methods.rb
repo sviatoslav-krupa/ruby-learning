@@ -86,4 +86,4 @@ Foo.singleton_class                  #=> #<Class:Foo>
 Foo.singleton_methods                #=> [:baz, :bar, :yaml_tag]
 Foo.singleton_class.instance_methods #=> [:bar, :baz, :yaml_tag... ]
 Foo.singleton_class.class            #=> Class
-Foo.singleton_class.superclass       #=> #<Class:Object
+Foo.singleton_class.superclass       #=> #<Class:Object>
