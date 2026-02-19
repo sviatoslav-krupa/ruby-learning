@@ -76,5 +76,6 @@ end
 Foo.bar #=> "Bar"
 Foo.baz #=> "Baz"
 
-Foo.singleton_class   #=> #<Class:Foo>
-Foo.singleton_methods #=> [:baz, :bar, :yaml_tag]
+Foo.singleton_class                   #=> #<Class:Foo>
+Foo.singleton_methods                 #=> [:baz, :bar, :yaml_tag]
+Foo.singleton_class.instance_moethods #=> [:bar, :baz, :yaml_tag... ]
