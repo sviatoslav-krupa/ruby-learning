@@ -87,3 +87,4 @@ Foo.singleton_methods                #=> [:baz, :bar, :yaml_tag]
 Foo.singleton_class.instance_methods #=> [:bar, :baz, :yaml_tag... ]
 Foo.singleton_class.class            #=> Class
 Foo.singleton_class.superclass       #=> #<Class:Object>
+Foo.singleton_class.ancestors        #=> [#<Class:Foo>, #<Class:Object>, #<Class:BasicObject>, Class, Module, Object, JSON::Ext::Generator::GeneratorMethods::Object, PP::ObjectMixin, Kernel, BasicObject]
