@@ -1,6 +1,5 @@
 # Notes:
 #   * Singleton method - method that only exists on one single instance
-#   * It creates an anonymous singleton class that stores singleton method
 
 class Player
   def play_game
