@@ -18,13 +18,12 @@ def fizzbuzz(number)
       puts "Fizz - #{i}"
     elsif i % 5 == 0
       puts "Buzz - #{i}"
-      else puts i
+    else puts i
     end
 
     i += 1
   end
 end
-
 fizzbuzz(25)
 # OUTPUT:
 #   1
@@ -52,3 +51,42 @@ fizzbuzz(25)
 #   23
 #   Fizz - 24
 #   Buzz - 25
+
+def fizzbuzz(number)
+  1.upto(number) do |i|
+    result = ""
+
+    result << "Fizz" if i % 3 == 0
+    result << "Buzz" if i % 5 == 0
+    result << i.to_s if result.empty?
+
+    puts result
+  end
+end
+fizzbuzz(25) #=> 1
+# OUTPUT:
+#   1
+#   2
+#   Fizz
+#   4
+#   Buzz
+#   Fizz
+#   7
+#   8
+#   Fizz
+#   Buzz
+#   11
+#   Fizz
+#   13
+#   14
+#   FizzBuzz
+#   16
+#   17
+#   Fizz
+#   19
+#   Buzz
+#   Fizz
+#   22
+#   23
+#   Fizz
+#   Buzz
