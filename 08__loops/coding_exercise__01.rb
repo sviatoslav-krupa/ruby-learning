@@ -60,6 +60,9 @@ def fizzbuzz(number)
     result << "Buzz" if i % 5 == 0
     result << i.to_s if result.empty?
 
+    # This will raise an error beacuse `.blank?` method comes from active support gem
+    # result.blank? #=> undefined method 'blank?' for an instance of String (NoMethodError)
+
     puts result
   end
 end
