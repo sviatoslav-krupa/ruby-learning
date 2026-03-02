@@ -9,6 +9,7 @@ puts "Sviat".object_id #=> 6345
 puts "Sviat" << " is awesome" #=> "Sviat is awesome"
 
 # frozen_string_literal: true
+# or enable it with the flag: `RUBYOPT="--enable-frozen-string-literal" ruby script.rb`
 
 "Sviat".object_id #=> 16
 "Sviat".object_id #=> 16 (same object id because it's frozen)
