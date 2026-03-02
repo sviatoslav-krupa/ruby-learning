@@ -14,5 +14,5 @@ puts "Sviat" << " is awesome" #=> "Sviat is awesome"
 "Sviat".object_id #=> 16 (same object id because it's frozen)
 
 "Sviat" << " is awesome"              #=> can't modify frozen String: "Sviat" (FrozenError)
-String.new("Sviat") << " is awesome"  #=> "Sviat is awesome" (`String.new` is not a literal)
-"Sviat" << " is awesome"              #=> "Sviat is awesome" (preferred way because it's more efficient)
+String.new("Sviat") << " is awesome"  #=> "Sviat is awesome" (`String.new` is not a literal, ASCII-8BIT encoding)
++"Sviat" << " is awesome"             #=> "Sviat is awesome" (preferred way because it's more efficient, UTF-8 encoding)
